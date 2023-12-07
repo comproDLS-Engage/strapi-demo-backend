@@ -39,18 +39,25 @@ const populate = {
   seo: {
     fields: ["metaTitle", "metaDescription"],
     populate: { shareImage: true },
-  }
+  },
 };
 
 module.exports = (config, { strapi }) => {
   // Add your own logic here.
   return async (ctx, next) => {
-    ctx.query = {
+    let query = {
       populate,
       filters: { slug: ctx.query.filters.slug },
       locale: ctx.query.locale,
     };
+    if (ctx.query.publicationState) {
+      query = {
+        ...query,
+        publicationState: ctx.query.publicationState,
+      };
+    }
 
+    ctx.query = query;
     console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
 
     await next();

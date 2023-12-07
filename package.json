@@ -10,11 +10,17 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@babel/core": "^7.23.5",
     "@strapi/plugin-i18n": "4.12.5",
     "@strapi/plugin-seo": "^1.8.0",
     "@strapi/plugin-users-permissions": "4.12.5",
     "@strapi/strapi": "4.12.5",
     "better-sqlite3": "8.4.0",
+    "graceful-fs": "^4.2.11",
+    "serverless": "^3.38.0",
+    "serverless-http": "^3.2.0",
+    "serverless-plugin-common-excludes": "^4.0.0",
+    "serverless-plugin-include-dependencies": "^5.1.0",
     "strapi-plugin-preview-button": "^2.2.1",
     "strapi-plugin-vercel-deploy": "^1.4.0"
   },
@@ -28,5 +34,8 @@
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-offline": "^13.3.0"
+  }
 }

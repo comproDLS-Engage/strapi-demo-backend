@@ -7,16 +7,23 @@ import {
     Typography,
 } from "@strapi/design-system";
 import SearchEntitySection from "../SearchEntitySection";
-import EntityDetailsSection  from "../EntityDetailsSection";
+import EntityDetailsSection from "../EntityDetailsSection";
 
 const TaskModal = (props) => {
     const { handleClose } = props;
     const [isCourseSelected, setIsCourseSelected] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState();
 
+    const handleEmptyClose = () => {
+        handleClose({
+            selectedCourse: null,
+            entityName: '',
+        });
+    }
+
     return (
         <ModalLayout
-            onClose={() => handleClose(null)}
+            onClose={handleEmptyClose}
             labelledBy="title"
             as="form"
             onSubmit={() => { }}
@@ -30,7 +37,7 @@ const TaskModal = (props) => {
                 {!isCourseSelected ?
                     <SearchEntitySection setIsCourseSelected={setIsCourseSelected} setSelectedCourse={setSelectedCourse} />
                     :
-                    <EntityDetailsSection selectedCourse={selectedCourse} setIsCourseSelected={setIsCourseSelected} handleClose={handleClose}/>
+                    <EntityDetailsSection selectedCourse={selectedCourse} setIsCourseSelected={setIsCourseSelected} handleClose={handleClose} />
                 }
             </ModalBody>
         </ModalLayout>

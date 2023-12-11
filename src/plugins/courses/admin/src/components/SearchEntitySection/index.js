@@ -18,7 +18,7 @@ const StyledCourseFlexBox = styled(Box)`
 function SearchEntitySection(props) {
     const { setIsCourseSelected, setSelectedCourse } = props;
     const [courses, setCourses] = useState([]);
-    const [selectedCourseIndex, setSelectedCourseIndex] = useState();
+    // const [selectedCourseIndex, setSelectedCourseIndex] = useState();
 
     const getProductItemsData = (productData) => {
         let productItems = [];
@@ -67,7 +67,7 @@ function SearchEntitySection(props) {
     const onCourseClick = (item, index) => {
         setIsCourseSelected(true);
         setSelectedCourse(item);
-        setSelectedCourseIndex(index);
+        // setSelectedCourseIndex(index);
     }
 
     return (
@@ -79,7 +79,7 @@ function SearchEntitySection(props) {
                             <Box style={{ maxWidth: "315px", }}>
                                 <CourseCard
                                     course={item}
-                                    isSelected={index === selectedCourseIndex}
+                                    // isSelected={index === selectedCourseIndex}
                                     onCourseClick={() => onCourseClick(item, index)}
                                     index={index}
                                 />

@@ -6,6 +6,7 @@ import {
 } from "@strapi/design-system";
 import styled from 'styled-components';
 import { ArrowLeft } from '@strapi/icons';
+import { EntityName } from '../../utils/constants';
 
 const StyledCourseDetails = styled(Box)`
     background-color: #E7EBEE;
@@ -87,7 +88,7 @@ function EntityDetailsSection(props) {
                 </Box>
             </StyledCourseDetails>
             <Box padding="24px">
-                <StyledDetailBox isSelected={selectedEntity === "title"} onClick={() => setSelectedEntity("title")}>
+                <StyledDetailBox isSelected={selectedEntity === EntityName.TITLE} onClick={() => setSelectedEntity(EntityName.TITLE)}>
                     <StyledTypography fontWeight="bold" textColor="neutral800" as="h3" paddingBottom="8px">
                         Title:
                     </StyledTypography>
@@ -95,7 +96,7 @@ function EntityDetailsSection(props) {
                         {selectedCourse.title}
                     </Typography>
                 </StyledDetailBox>
-                <StyledDetailBox isSelected={selectedEntity === "description"} onClick={() => setSelectedEntity("description")}>
+                <StyledDetailBox isSelected={selectedEntity === EntityName.DESCRIPTION} onClick={() => setSelectedEntity(EntityName.DESCRIPTION)}>
                     <StyledTypography fontWeight="bold" textColor="neutral800" as="h3" paddingBottom="8px">
                         Description:
                     </StyledTypography>
@@ -103,7 +104,7 @@ function EntityDetailsSection(props) {
                         {selectedCourse.description}
                     </Typography>
                 </StyledDetailBox>
-                <StyledDetailBox isSelected={selectedEntity === "modules"} onClick={() => setSelectedEntity("modules")}>
+                <StyledDetailBox isSelected={selectedEntity === EntityName.MODULES} onClick={() => setSelectedEntity(EntityName.MODULES)}>
                     <StyledTypography fontWeight="bold" textColor="neutral800" as="h3" paddingBottom="8px">
                         Modules:
                     </StyledTypography>

@@ -10,7 +10,8 @@ import { Plus } from '@strapi/icons';
 import { Button } from '@strapi/design-system/Button';
 import { Box } from '@strapi/design-system/Box';
 import { Flex } from '@strapi/design-system/Flex';
-import CourseModal from '../../components/CourseModal'
+import CourseModal from '../../components/CourseModal';
+import EntityCard from '../../components/EntityCard';
 
 
 const HomePage = () => {
@@ -37,15 +38,17 @@ const HomePage = () => {
         as="h2"
       />
       <ContentLayout>
-        <Box background="neutral0" hasRadius={true} shadow="filterShadow">
-          <Flex justifyContent="center" padding={8}>
-            {selectedEntityData.selectedCourse !== null && selectedEntityData.entityName !== '' ?
-              <p>{selectedEntityData.entityName}</p>
-              :
+        {selectedEntityData.selectedCourse !== null && selectedEntityData.entityName !== '' ?
+          <Box background="neutral0" hasRadius={true} shadow="filterShadow" padding={4}>
+            <EntityCard selectedEntityData={selectedEntityData} openModal={openModal} setSelectedEntityData={setSelectedEntityData}/>
+          </Box>
+          :
+          <Box background="neutral0" hasRadius={true} shadow="filterShadow">
+            <Flex justifyContent="center" padding={8}>
               <Button onClick={openModal} startIcon={<Plus />}>Link Entity (Course, Event, Resource)</Button>
-            }
-          </Flex>
-        </Box>
+            </Flex>
+          </Box>
+        }
       </ContentLayout>
       {showModal && <CourseModal handleClose={closeModal} />}
     </Layout>

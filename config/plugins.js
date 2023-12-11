@@ -54,4 +54,8 @@ module.exports = ({ env }) => ({
       ],
     },
   },
+  'courses': {
+    enabled: true,
+    resolve: './src/plugins/courses'
+  },
 });

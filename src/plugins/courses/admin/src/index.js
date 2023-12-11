@@ -17,7 +17,6 @@ export default {
       },
       Component: async () => {
         const component = await import(/* webpackChunkName: "[request]" */ './pages/App');
-
         return component;
       },
       permissions: [
@@ -27,6 +26,23 @@ export default {
         //   subject: null,
         // },
       ],
+    });
+    app.customFields.register({
+      name: "Courses",
+      pluginId: 'courses', 
+      type: "json", 
+      icon: PluginIcon,
+      intlLabel: {
+        id: `${pluginId}.plugin.name`,
+        defaultMessage: name,
+      },
+      intlDescription: {
+        id: `${pluginId}.plugin.description`,
+        defaultMessage: "Link Entity (Course, Event, Resource)",
+      },
+      components: {
+        Input: async () => import(/* webpackChunkName: "input-component" */ "./components/CoursesInputButton"),
+      },
     });
     app.registerPlugin({
       id: pluginId,

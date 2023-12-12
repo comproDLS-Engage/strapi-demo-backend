@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_courses",
+  "info": {
+    "displayName": "courses"
+  },
+  "options": {},
+  "attributes": {
+    "Courses": {
+      "type": "customField",
+      "customField": "plugin::courses.Courses"
+    }
+  }
+}

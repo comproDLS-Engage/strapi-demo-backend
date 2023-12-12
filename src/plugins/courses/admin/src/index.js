@@ -27,6 +27,13 @@ export default {
         // },
       ],
     });
+    app.registerPlugin({
+      id: pluginId,
+      initializer: Initializer,
+      isReady: false,
+      name,
+    });
+    
     app.customFields.register({
       name: "Courses",
       pluginId: 'courses', 
@@ -43,12 +50,9 @@ export default {
       components: {
         Input: async () => import(/* webpackChunkName: "input-component" */ "./components/CoursesInputButton"),
       },
-    });
-    app.registerPlugin({
-      id: pluginId,
-      initializer: Initializer,
-      isReady: false,
-      name,
+      options: {
+        // declare options here
+      },
     });
   },
 

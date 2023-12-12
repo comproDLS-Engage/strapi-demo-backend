@@ -8,13 +8,13 @@ module.exports = ({ env }) => ({
         {
           uid: "api::home.home",
           published: {
-            url: "http://localhost:3000/{locale}",
+            url: `${env.FRONTEND_URL}{locale}`,
           },
         },
         {
           uid: "api::page.page",
           draft: {
-            url: "http://localhost:3000/api/preview",
+            url: `${env.FRONTEND_URL}/api/preview`,
             query: {
               type: "page",
               slug: "{slug}",
@@ -22,33 +22,33 @@ module.exports = ({ env }) => ({
             },
           },
           published: {
-            url: "http://localhost:3000/{locale}/{slug}",
+            url: `${env.FRONTEND_URL}/{locale}/{slug}`,
           },
         },
         {
           uid: "api::post.post",
           draft: {
-            url: "http://localhost:3000/api/preview",
+            url: `${env.FRONTEND_URL}/api/preview`,
             query: {
               type: "post",
               slug: "{slug}",
             },
           },
           published: {
-            url: "http://localhost:3000/blog/{slug}",
+            url: `${env.FRONTEND_URL}/blog/{slug}`,
           },
         },
         {
           uid: "api::article.article",
           draft: {
-            url: "http://localhost:3000/blog/tech/{slug}?preview=true",
+            url: `${env.FRONTEND_URL}/blog/tech/{slug}?preview=true`,
             query: {
               type: "post",
               slug: "{slug}",
             },
           },
           published: {
-            url: "http://localhost:3000/blog/tech/{slug}",
+            url: `${env.FRONTEND_URL}/blog/tech/{slug}`,
           },
         },
       ],

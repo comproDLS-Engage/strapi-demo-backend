@@ -14,9 +14,6 @@ function CoursesInputButton(props) {
         entityName: '',
     });
 
-    // console.log("props", props);
-    // console.log("props.value", props.value);
-
     const openModal = () => {
         setShowModal(true);
     }
@@ -31,7 +28,7 @@ function CoursesInputButton(props) {
     }
 
     useEffect(() => {
-        if (props.value) {
+        if (value && value != 'null') {
             let JSONObject = JSON.parse(value);
             setSelectedEntityData(JSONObject);
         }
